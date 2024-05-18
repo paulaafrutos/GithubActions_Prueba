@@ -1,0 +1,18 @@
+nombre: GitHub Acciones Demo
+nombre: $. github.actor - está probando GitHub Actions
+en: [empuje]
+los puestos de trabajo:
+  Explora-GitHub-Actions:
+    Corrida: ubuntu-latest
+    pasos:
+      - run: echo " El trabajo fue activado automáticamente por un $- github.event.name . event".
+      - ejecutar: eco "Este trabajo se está ejecutando ahora en un servidor $. runner.os alojado por GitHub".
+      - ejecutar: eco ". El nombre de tu rama es $. github.ref y tu repositorio es $. github.repository ".
+      - nombre: Echaca el código de repositorio
+        usos: acciones/checkout.v4
+      - run: echo ". El repositorio github.repository ha sido clonado al corredor".
+      - ejecutar: eco ". El flujo de trabajo está listo para probar su código en el corredor".
+      - nombre: Lista de archivos en el repositorio
+        Correr: .
+          ls $. github.workspace
+      - correr: eco "El estado de este trabajo es de $. job.status ".
