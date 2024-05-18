@@ -1,18 +1,18 @@
-nombre: GitHub Acciones Demo
-nombre: $. github.actor - está probando GitHub Actions
-en: [empuje]
-los puestos de trabajo:
-  Explora-GitHub-Actions:
-    Corrida: ubuntu-latest
-    pasos:
-      - run: echo " El trabajo fue activado automáticamente por un $- github.event.name . event".
-      - ejecutar: eco "Este trabajo se está ejecutando ahora en un servidor $. runner.os alojado por GitHub".
-      - ejecutar: eco ". El nombre de tu rama es $. github.ref y tu repositorio es $. github.repository ".
-      - nombre: Echaca el código de repositorio
-        usos: acciones/checkout.v4
-      - run: echo ". El repositorio github.repository ha sido clonado al corredor".
-      - ejecutar: eco ". El flujo de trabajo está listo para probar su código en el corredor".
-      - nombre: Lista de archivos en el repositorio
-        Correr: .
-          ls $. github.workspace
-      - correr: eco "El estado de este trabajo es de $. job.status ".
+name: GitHub Actions Demo
+run-name: ${{ github.actor }} is testing out GitHub Actions
+on: [push]
+jobs:
+  Explore-GitHub-Actions:
+      runs-on: ubuntu-latest
+      steps:
+      - run: echo "The job was automatically triggered by a ${{ github.event_name }} event."
+      - run: echo "This job is now running on a ${{ runner.os }} server hosted by GitHub!"
+      - run: echo "The name of your branch is ${{ github.ref }} and your repository is ${{ github.repository }}."
+      - name: Check out repository code
+        uses: actions/checkout@v4
+      - run: echo "The ${{ github.repository }} repository has been cloned to  the runner."
+      - run: echo "The workflow is now ready to test your code on the runner."
+      - name: List files in the repository
+        run:
+          ls ${{ github.workspace }}
+      - run: echo "This job's status is ${{ job.status }}."
